@@ -1,17 +1,45 @@
 "use strict";
+window.addEventListener("DOMContentLoaded", init);
+
+const colorPick = document.querySelector("#colorpick");
+const colorField = document.querySelector("#colorfield");
+const colorCodes = document.querySelector("#colorcodes");
+
+const hsl = document.querySelector("#hsl");
+const hex = document.querySelector("#hex");
+const rgb = document.querySelector("#rgb");
 
 let r;
 let g;
 let b;
 
-function convert(hexString) {
-  let r = parseInt(hexString.substring(1, 3), 16);
-  let g = parseInt(hexString.substring(3, 5), 16);
-  let b = parseInt(hexString.substring(5, 7), 16);
+function init() {
+  hsl.textContent = "";
+  rgb.textContent = "";
+  hex.textContent = "";
 
-  console.log(r, g, b);
+  colorField.addEventListener("input", displayColor);
 }
-//convert("somethign")
+
+function displayColor() {
+  colorPick.style.backgroundColor = colorField.value;
+}
+
+function hexToRGB(hex) {
+  r = parseInt(hex.substring(1, 3), 16);
+  g = parseInt(hex.substring(3, 5), 16);
+  b = parseInt(hex.substring(5, 7), 16);
+
+  //rgb.textContent =
+}
+
+function rgbToHex(hex) {
+  r = hex.substring(1, 3).toString();
+  g = hex.substring(3, 5).toString();
+  b = hex.substring(5, 7).toString();
+
+  //hex.textContent =
+}
 
 function rgbToHSL() {
   r /= 255;
@@ -49,6 +77,8 @@ function rgbToHSL() {
   l *= 100;
 
   console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
+
+  //hsl.textContent =
 }
 
 rgbToHSL();
