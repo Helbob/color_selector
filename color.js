@@ -1,10 +1,15 @@
 "use strict";
+
+//make option in HTML
+//no reason to send more than HSL to the 4 other colors, and then put RGB + HEX
+
 window.addEventListener("DOMContentLoaded", init);
 
 const colorPick = document.querySelector("#colorpick");
-const colorField = document.querySelector("#colorfield");
+const colorField = document.querySelector("#userinput");
 const colorCodes = document.querySelector("#colorcodes");
 
+//Rykkes ned
 const hsl = document.querySelector("#hsl");
 const hex = document.querySelector("#hex");
 const rgb = document.querySelector("#rgb");
@@ -79,6 +84,10 @@ function rgbToHSL() {
   console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
 
   //hsl.textContent =
+  return [h, s, l];
 }
+//function displayRGB
+//function displayHSL
+//function displayHEX
 
 rgbToHSL();
